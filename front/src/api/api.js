@@ -22,8 +22,8 @@ export const api = {
   getTop10Students() {
     get("/top-10-students");
   },
-  postStudent(name) {
-    post("/students", { name });
+  postStudent(name, course) {
+    post("/students", { name, course });
   },
   postGrade(studentId, course, grade) {
     post("/grade", { studentId, course, grade });

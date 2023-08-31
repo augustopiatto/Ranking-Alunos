@@ -37,7 +37,7 @@ export const apimock = {
       { idx: 10, name: "Lara", final_score: 9.1 },
     ];
   },
-  postStudent(name) {
+  postStudent(name, course) {
     return;
   },
   postGrade(studentId, course, grade) {

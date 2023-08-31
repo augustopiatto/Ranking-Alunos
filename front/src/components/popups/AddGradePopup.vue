@@ -11,7 +11,7 @@
           :items="students"
           :rules="[rules.required]"
         />
-        <v-text-field
+        <v-autocomplete
           label="Curso"
           v-model="course"
           item-value="value"

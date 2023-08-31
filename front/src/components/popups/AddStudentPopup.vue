@@ -9,6 +9,14 @@
             v-model="name"
             :rules="[rules.required]"
           />
+          <v-autocomplete
+            label="Curso"
+            v-model="course"
+            item-value="value"
+            item-title="name"
+            :items="courses"
+            :rules="[rules.required]"
+          />
         </v-card-text>
         <v-card-actions class="aspc__actions--buttons">
           <v-btn border @click="close">Fechar</v-btn>
@@ -37,6 +45,12 @@ export default {
   },
   data() {
     return {
+      course: "",
+      courses: [
+        { name: "Tarefas", value: "tasks" },
+        { name: "Desafios", value: "challenges" },
+        { name: "Projetos", value: "projects" },
+      ],
       loading: false,
       name: "",
       rules,
@@ -53,7 +67,7 @@ export default {
       if (valid) {
         try {
           this.loading = true;
-          await apimock.postStudent(this.name);
+          await apimock.postStudent(this.name, this.course);
           this.close();
         } catch (error) {
           console.log(error);
