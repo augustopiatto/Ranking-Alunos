@@ -1,4 +1,4 @@
-export const apimock = {
+const apimock = {
   getStudents() {
     return [
       { id: 1, name: "Roberto" },

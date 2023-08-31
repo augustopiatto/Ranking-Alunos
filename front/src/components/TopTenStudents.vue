@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import apimock from "../apimock/apimock";
+import api from "../api/api.js";
 
 export default {
   data() {
@@ -28,7 +28,7 @@ export default {
   },
   async mounted() {
     try {
-      this.students = await apimock.getTop10Students();
+      this.students = await api.getTop10Students();
     } catch (error) {
       console.log(error);
     }

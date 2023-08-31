@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "localhost:5176/api",
+  baseURL: "http://localhost:8000/api/",
 });
 
 const get = (url) => {
@@ -12,20 +12,26 @@ const post = (url) => {
   return axiosInstance.post(url);
 };
 
-export const api = {
+const api = {
   getStudents() {
-    get("/students");
+    return get("students/").then((response) => response.data);
   },
   getTop3Students() {
-    get("/top-three-students");
+    return get("top-three-students/").then((response) => response.data);
   },
   getTop10Students() {
-    get("/top-ten-students");
+    return get("top-ten-students/").then((response) => response.data);
   },
   postStudent(name, course) {
-    post("/students", { name, course });
+    return post("students/", { name, course }).then(
+      (response) => response.data
+    );
   },
   postGrade(studentId, course, grade) {
-    post("/grades", { studentId, course, grade });
+    return post("grades/", { studentId, course, grade }).then(
+      (response) => response.data
+    );
   },
 };
+
+export default api;
