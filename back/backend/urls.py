@@ -15,8 +15,8 @@ from backend.views import grade_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/students', student_view.students()),
-    path('/top-three-students', student_view.get_top_three_students()),
-    path('/top-ten-students', student_view.get_top_ten_students()),
-    path('/grades', grade_view.post_student_grade()),
+    path('students/', student_view.students),
+    path('top-three-students/', student_view.get_top_three_students),
+    path('top-ten-students/', student_view.get_top_ten_students),
+    path('grades/', grade_view.post_student_grade),
 ]
