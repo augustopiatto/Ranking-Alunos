@@ -60,21 +60,20 @@ Back:
 
 O projeto inclui as seguintes tecnologias:
 
-- React para reatividade.
-- Typescript para segurança de tipo e escalabilidade.
-- Vite para desenvolvimento e construção rápidos e eficientes
-- Highcharts como biblioteca de gráficos.
-- Ant Design como biblioteca para UI.
-- Axios para chamadas HTTP.
-- React router DOM para Client Side Routing.
+Front:
+  - Vue para reatividade.
+  - Javascript para escalabilidade.
+  - Vite para desenvolvimento e construção rápidos e eficientes
+  - Vuetify como biblioteca para UI.
+  - Axios para chamadas HTTP.
+
+Back:
+  - 
 
 ### Funcionalidades
 
 O projeto possui as seguintes funcionalidades:
 
-- Hooks
-- React Router
-- useContext
 - Componentes Funcionais
 - Eventos
 
@@ -82,7 +81,7 @@ O projeto possui as seguintes funcionalidades:
 
 O projeto inclui os seguintes scripts:
 
-- `npm run dev`: Inicia o servidor de desenvolvimento
-- `npm run build`: Builda o aplicativo pronto para produção
-- `npm run lint`: Linta e corrige os arquivos
-- `npm run deploy`: Cria acesso via GitHub Pages - `https://augustopiatto.github.io/Tractian-ProcessoSeletivo/`
+Front:
+  - `npm run dev`: Inicia o servidor de desenvolvimento
+  - `npm run build`: Builda o aplicativo pronto para produção
+  - `npm run lint`: Linta e corrige os arquivos
