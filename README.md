@@ -16,21 +16,27 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 #### Home
 
-
 ## Começando
 
 Para iniciar o projeto, siga os passos abaixo:
 
+- Clone o repositório em sua máquina local
+
 Front:
 
-- Clone o repositório em sua máquina local
+- Vá até a pasta `front`
 - Execute `npm install` para instalar as dependências do projeto (utilizado node v20.1.0 e npm v9.6.6)
 - Execute `npm run dev` para iniciar o servidor de desenvolvimento
-- Abra seu navegador e acesse `http://localhost:5173/` para ver a aplicação funcionando
 
 Back:
 
+- Vá até a pasta `back`
+- Crie uma virtualenv com python (utilizado 3.10.11)
+- Rode `python -r requirements.py` para instalar as dependências
+- Rode `python manage.py migrate` para aplicação dos modelos no ambiente local
+- Execute `python manage.py runserver`
 
+- Abra seu navegador e acesse `http://localhost:5173/` para ver a aplicação funcionando
 
 ## Estrutura de pasta (TODO)
 
@@ -61,14 +67,18 @@ Back:
 O projeto inclui as seguintes tecnologias:
 
 Front:
-  - Vue para reatividade.
-  - Javascript para escalabilidade.
-  - Vite para desenvolvimento e construção rápidos e eficientes
-  - Vuetify como biblioteca para UI.
-  - Axios para chamadas HTTP.
+
+- Vue para reatividade.
+- Javascript para escalabilidade.
+- Vite para desenvolvimento e construção rápidos e eficientes
+- Vuetify como biblioteca para UI.
+- Axios para chamadas HTTP.
 
 Back:
-  - 
+
+- Django para
+- Python para
+- PostgreSQL para
 
 ### Funcionalidades
 
@@ -82,6 +92,11 @@ O projeto possui as seguintes funcionalidades:
 O projeto inclui os seguintes scripts:
 
 Front:
-  - `npm run dev`: Inicia o servidor de desenvolvimento
-  - `npm run build`: Builda o aplicativo pronto para produção
-  - `npm run lint`: Linta e corrige os arquivos
+
+- `npm run dev`: Inicia o servidor de desenvolvimento
+- `npm run build`: Builda o aplicativo pronto para produção
+- `npm run lint`: Linta e corrige os arquivos
+
+Back:
+
+-

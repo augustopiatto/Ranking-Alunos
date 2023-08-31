@@ -17,15 +17,15 @@ export const api = {
     get("/students");
   },
   getTop3Students() {
-    get("/top-3-students");
+    get("/top-three-students");
   },
   getTop10Students() {
-    get("/top-10-students");
+    get("/top-ten-students");
   },
   postStudent(name, course) {
     post("/students", { name, course });
   },
   postGrade(studentId, course, grade) {
-    post("/grade", { studentId, course, grade });
+    post("/grades", { studentId, course, grade });
   },
 };
