@@ -16,6 +16,10 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 #### Home
 
+### MER
+
+![MER](image.png)
+
 ## Começando
 
 Para iniciar o projeto, siga os passos abaixo:
