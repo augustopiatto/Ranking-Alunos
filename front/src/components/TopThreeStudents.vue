@@ -18,15 +18,20 @@
 </template>
 
 <script>
+import apimock from "../apimock/apimock";
+
 export default {
   data() {
     return {
-      students: [
-        { idx: 1, name: "Juliano", final_score: 10 },
-        { idx: 2, name: "Godofredo", final_score: 9 },
-        { idx: 3, name: "Julia", final_score: 8 },
-      ],
+      students: [],
     };
+  },
+  async mounted() {
+    try {
+      this.students = await apimock.getTop3Students();
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>

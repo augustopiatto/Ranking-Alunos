@@ -18,22 +18,20 @@
 </template>
 
 <script>
+import apimock from "../apimock/apimock";
+
 export default {
   data() {
     return {
-      students: [
-        { idx: 1, name: "Roberto", final_score: 10 },
-        { idx: 2, name: "Fredo", final_score: 9.9 },
-        { idx: 3, name: "Roberta", final_score: 9.8 },
-        { idx: 4, name: "Paulo", final_score: 9.7 },
-        { idx: 5, name: "Tales", final_score: 9.6 },
-        { idx: 6, name: "Ana", final_score: 9.5 },
-        { idx: 7, name: "Núbia", final_score: 9.4 },
-        { idx: 8, name: "Javanil", final_score: 9.3 },
-        { idx: 9, name: "Toelison", final_score: 9.2 },
-        { idx: 10, name: "Lara", final_score: 9.1 },
-      ],
+      students: [],
     };
+  },
+  async mounted() {
+    try {
+      this.students = await apimock.getTop10Students();
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>
