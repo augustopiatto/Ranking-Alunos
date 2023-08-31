@@ -1,21 +1,33 @@
 <template>
   <v-dialog v-model="visible" class="add-student-popup">
     <v-card class="asp__card--container">
-      <v-card-title class="pl-0">Adicionar aluno</v-card-title>
-      <v-card-items>
-        <v-text-field label="Nome do aluno" />
-      </v-card-items>
-      <v-card-actions class="aspc__actions--buttons">
-        <v-btn border @click="close">Fechar</v-btn>
-        <v-btn class="aspca__button--primary" @click="addStudent"
-          >Adicionar</v-btn
-        >
-      </v-card-actions>
+      <v-form ref="form">
+        <v-card-title class="pl-0">Adicionar aluno</v-card-title>
+        <v-card-text class="pa-0">
+          <v-text-field
+            label="Nome do aluno"
+            v-model="name"
+            :rules="[rules.required]"
+          />
+        </v-card-text>
+        <v-card-actions class="aspc__actions--buttons">
+          <v-btn border @click="close">Fechar</v-btn>
+          <v-btn
+            class="aspca__button--primary"
+            :loading="loading"
+            @click="addStudent"
+            >Adicionar</v-btn
+          >
+        </v-card-actions>
+      </v-form>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
+import apimock from "../../apimock/apimock.js";
+import rules from "../../helpers/rules.js";
+
 export default {
   props: {
     showAddStudentPopup: {
@@ -23,13 +35,33 @@ export default {
       type: Boolean,
     },
   },
+  data() {
+    return {
+      loading: false,
+      name: "",
+      rules,
+    };
+  },
   computed: {
     visible() {
       return this.showAddStudentPopup;
     },
   },
   methods: {
-    addStudent() {},
+    async addStudent() {
+      const { valid } = await this.$refs.form.validate();
+      if (valid) {
+        try {
+          this.loading = true;
+          await apimock.postStudent(this.name);
+          this.close();
+        } catch (error) {
+          console.log(error);
+        } finally {
+          this.loading = false;
+        }
+      }
+    },
     close() {
       this.$emit("close-add-student-popup");
     },

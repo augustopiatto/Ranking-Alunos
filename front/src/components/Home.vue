@@ -6,11 +6,14 @@
     </div>
     <TopThreeStudents />
     <TopTenStudents />
-    <AddGradePopup v-if="showAddGradePopup" @close="closeAddGradePopup" />
+    <AddGradePopup
+      v-if="showAddGradePopup"
+      @closeAddGradePopup="closeAddGradePopup"
+    />
     <AddStudentPopup
       v-if="showAddStudentPopup"
       :showAddStudentPopup="showAddStudentPopup"
-      @close="closeAddStudentPopup"
+      @closeAddStudentPopup="closeAddStudentPopup"
     />
   </div>
 </template>
