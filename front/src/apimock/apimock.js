@@ -1,16 +1,19 @@
-export const api = {
+export const apimock = {
   getStudents() {
     return [
-      { name: "Roberto", final_score: 10 },
-      { name: "Fredo", final_score: 9.9 },
-      { name: "Roberta", final_score: 9.8 },
-      { name: "Paulo", final_score: 9.7 },
-      { name: "Tales", final_score: 9.6 },
-      { name: "Ana", final_score: 9.5 },
-      { name: "Núbia", final_score: 9.4 },
-      { name: "Javanil", final_score: 9.3 },
-      { name: "Toelison", final_score: 9.2 },
-      { name: "Lara", final_score: 9.1 },
+      { id: 1, name: "Roberto" },
+      { id: 2, name: "Fredo" },
+      { id: 3, name: "Roberta" },
+      { id: 4, name: "Paulo" },
+      { id: 5, name: "Tales" },
+      { id: 6, name: "Ana" },
+      { id: 7, name: "Núbia" },
+      { id: 8, name: "Javanil" },
+      { id: 9, name: "Toelison" },
+      { id: 10, name: "Lara" },
+      { id: 11, name: "Juliano" },
+      { id: 12, name: "Godofredo" },
+      { id: 13, name: "Julia" },
     ];
   },
   getTop3Students() {
@@ -42,4 +45,4 @@ export const api = {
   },
 };
 
-export default api;
+export default apimock;

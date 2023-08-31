@@ -8,12 +8,13 @@
     <TopTenStudents />
     <AddGradePopup
       v-if="showAddGradePopup"
-      @closeAddGradePopup="closeAddGradePopup"
+      :show-add-grade-popup="showAddGradePopup"
+      @close-add-grade-popup="closeAddGradePopup"
     />
     <AddStudentPopup
       v-if="showAddStudentPopup"
-      :showAddStudentPopup="showAddStudentPopup"
-      @closeAddStudentPopup="closeAddStudentPopup"
+      :show-add-student-popup="showAddStudentPopup"
+      @close-add-student-popup="closeAddStudentPopup"
     />
   </div>
 </template>
