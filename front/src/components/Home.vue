@@ -1,20 +1,57 @@
 <template>
   <div class="container">
     <div class="buttons-container">
-      <v-btn>Adicionar Aluno</v-btn>
-      <v-btn>Adicionar Nota</v-btn>
+      <v-btn @click="openAddStudentPopup">Adicionar Aluno</v-btn>
+      <v-btn @click="openAddGradePopup">Adicionar Nota</v-btn>
     </div>
     <TopThreeStudents />
     <TopTenStudents />
+    <AddGradePopup v-if="showAddGradePopup" @close="closeAddGradePopup" />
+    <AddStudentPopup
+      v-if="showAddStudentPopup"
+      :showAddStudentPopup="showAddStudentPopup"
+      @close="closeAddStudentPopup"
+    />
   </div>
 </template>
 
-<script setup>
+<script>
+import AddGradePopup from "./popups/AddGradePopup.vue";
+import AddStudentPopup from "./popups/AddStudentPopup.vue";
 import TopThreeStudents from "./TopThreeStudents.vue";
 import TopTenStudents from "./TopTenStudents.vue";
+
+export default {
+  components: {
+    AddGradePopup,
+    AddStudentPopup,
+    TopThreeStudents,
+    TopTenStudents,
+  },
+  data() {
+    return {
+      showAddGradePopup: false,
+      showAddStudentPopup: false,
+    };
+  },
+  methods: {
+    closeAddGradePopup() {
+      this.showAddGradePopup = false;
+    },
+    closeAddStudentPopup() {
+      this.showAddStudentPopup = false;
+    },
+    openAddGradePopup() {
+      this.showAddGradePopup = true;
+    },
+    openAddStudentPopup() {
+      this.showAddStudentPopup = true;
+    },
+  },
+};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   height: calc(100vh - 64px /** header */);
   padding: 32px 0;

@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .table {
   width: 400px;
 }

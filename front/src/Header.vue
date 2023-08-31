@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .header {
   height: 64px;
   background-color: var(--light-blue);
