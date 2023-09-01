@@ -1,5 +1,6 @@
 from backend.views import student_view
-from backend.models import Aluno
+from backend.models import Aluno, Atividade, Escola
+from django.db.models import Avg
 import json
 
 
@@ -19,3 +20,43 @@ def test_post_students(db, rf, mocker):
     response = student_view.students(request)
 
     assert response.status_code == 200
+
+
+def test_get_top_three_students(db, rf, mocker):
+    student_1 = Aluno.objects.create(nome="teste_1")
+    student_2 = Aluno.objects.create(nome="teste_2")
+
+    data_school = Escola.objects.create(nome="DADOS")
+
+    # student_1
+    Atividade.objects.create(
+        aluno=student_1,
+        tipo="TAREFAS",
+        nota=2,
+        escola=data_school
+    )
+    Atividade.objects.create(
+        aluno=student_2,
+        tipo="TAREFAS",
+        nota=1,
+        escola=data_school
+    )
+    service_response = (
+        Atividade.objects.values("aluno", "escola", "aluno__nome")
+        .annotate(grade_avg=Avg("nota"))
+        .order_by("-grade_avg")
+    )[0:3]
+
+    mocker.patch(
+        "backend.services.student_svc.get_top_three_students",
+        return_value=service_response
+    )
+
+    request = rf.get("api/top-three-students/")
+    response = student_view.get_top_three_students(request)
+
+    assert response.status_code == 200
+    assert json.loads(response.content) == [
+        {"idx": 1, "name": student_1.nome, "final_score": "2"},
+        {"idx": 2, "name": student_2.nome, "final_score": "1"}
+    ]

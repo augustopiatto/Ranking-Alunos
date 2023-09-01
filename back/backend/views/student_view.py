@@ -13,13 +13,22 @@ def students(request):
 
     elif request.method == "GET":
         students = student_svc.get_students()
-        serialized_students = [student_serializers.get_students_serializer(student) for student in students] 
+        serialized_students = [
+            student_serializers.get_students_serializer(student) for student in students
+        ] 
 
         return JsonResponse(serialized_students, safe=False)
 
 
 def get_top_three_students(request):
-    return JsonResponse([], safe=False)
+    students = student_svc.get_top_three_students()
+    serialized_students = [
+        student_serializers.get_top_three_students_serializer(
+            index, student
+        ) for index, student in enumerate(students)
+    ] 
+
+    return JsonResponse(serialized_students, safe=False)
 
 
 def get_top_ten_students(request):
