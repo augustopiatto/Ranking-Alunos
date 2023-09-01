@@ -1,13 +1,20 @@
-from backend.models import Atividade, Escola
+from backend.models import Aluno, Atividade, Escola
 from django.db.models import Avg
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
+
+
+def post_students(name):
+    try:
+        Aluno.objects.get(nome=name)
+    except ObjectDoesNotExist: 
+        Aluno.objects.create(nome=name)
+        return
+
+    raise ValidationError("O aluno já está cadastrado")
 
 
 def get_students():
     return []
-
-
-def post_students(name):
-    pass
 
 
 def get_top_three_students():

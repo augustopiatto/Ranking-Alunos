@@ -1,8 +1,31 @@
 from backend.models import Aluno, Atividade, Escola
 from backend.services import student_svc
-from backend.forms.student_forms import TopTenStudents
+from backend.forms.student_forms import PostStudents, TopTenStudents
+from django.core.exceptions import ValidationError
 import pytest
 
+
+def test_create_non_existent_student(db):
+    name = "test"
+    form = PostStudents(name=name)
+    student_svc.post_students(form.name)
+
+    assert Aluno.objects.filter(nome=name).exists()
+
+
+def test_create_already_existent_student(db):
+    Aluno.objects.create(nome="test")
+    form = PostStudents(name="test")
+
+    with pytest.raises(ValidationError) as exception:
+        student_svc.post_students(form.name)
+    assert exception.value.message == "O aluno já está cadastrado"
+
+
+def test_get_students(db):
+    response = student_svc.get_students()
+
+    assert response == []
 
 def test_get_top_three_students(db):
     student_1 = Aluno.objects.create(nome="test_1")

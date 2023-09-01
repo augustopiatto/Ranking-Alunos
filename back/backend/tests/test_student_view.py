@@ -35,6 +35,7 @@ def test_get_top_three_students(db, rf, mocker):
         nota=2,
         escola=data_school
     )
+    # student_2
     Atividade.objects.create(
         aluno=student_2,
         tipo="TAREFAS",
