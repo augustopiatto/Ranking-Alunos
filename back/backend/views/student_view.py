@@ -1,16 +1,20 @@
 from django.http import JsonResponse
+from backend.services import student_svc
 
 
 def students(request):
     breakpoint()
     if request.method == "POST":
-        return []
+        return JsonResponse({})
     elif request.method == "GET":
-        return []
+        students = student_svc.get_students()
+        serialized_students = students.serialize()
+
+        return JsonResponse(serialized_students, safe=False)
 
 
 def get_top_three_students(request):
-    return []
+    return JsonResponse([], safe=False)
 
 
 def get_top_ten_students(request):

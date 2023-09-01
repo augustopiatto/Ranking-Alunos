@@ -1,8 +1,9 @@
-def students(request):
-    if request.method == "POST":
-        return []
-    elif request.method == "GET":
-        return []
+def get_students():
+    return []
+
+
+def post_students(name):
+    pass
 
 
 def get_top_three_students() :
