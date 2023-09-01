@@ -1,29 +1,31 @@
 from backend.models import Aluno, Atividade, Escola
 from backend.services import student_svc
+from backend.forms.student_forms import TopTenStudents
+import pytest
 
 
 def test_get_top_three_students(db):
-    student_1 = Aluno.objects.create(nome="teste_1")
-    student_2 = Aluno.objects.create(nome="teste_2")
-    student_3 = Aluno.objects.create(nome="teste_3")
-    student_4 = Aluno.objects.create(nome="teste_4")
+    student_1 = Aluno.objects.create(nome="test_1")
+    student_2 = Aluno.objects.create(nome="test_2")
+    student_3 = Aluno.objects.create(nome="test_3")
+    student_4 = Aluno.objects.create(nome="test_4")
 
-    data_school = Escola.objects.create(nome="DADOS")
-    tech_school = Escola.objects.create(nome="TECNOLOGIA")
+    data_school = Escola.objects.create(nome="data")
+    tech_school = Escola.objects.create(nome="technology")
 
     data_school.alunos.add(student_1, student_2)
     tech_school.alunos.add(student_2, student_3, student_4)
 
-    # student_1
+    # student_1 - Data
     Atividade.objects.create(
         aluno=student_1,
-        tipo="TAREFAS",
+        tipo="tasks",
         nota=1,
         escola=data_school
     )
     Atividade.objects.create(
         aluno=student_1,
-        tipo="DESAFIOS",
+        tipo="challenges",
         nota=2,
         escola=data_school
     )
@@ -31,13 +33,13 @@ def test_get_top_three_students(db):
     # student_2 - Data
     Atividade.objects.create(
         aluno=student_2,
-        tipo="TAREFAS",
+        tipo="tasks",
         nota=3,
         escola=data_school
     )
     Atividade.objects.create(
         aluno=student_2,
-        tipo="DESAFIOS",
+        tipo="challenges",
         nota=4,
         escola=data_school
     )
@@ -45,13 +47,13 @@ def test_get_top_three_students(db):
     # student_2 - Tech
     Atividade.objects.create(
         aluno=student_2,
-        tipo="TAREFAS",
+        tipo="tasks",
         nota=5,
         escola=tech_school
     )
     Atividade.objects.create(
         aluno=student_2,
-        tipo="DESAFIOS",
+        tipo="challenges",
         nota=6,
         escola=tech_school
     )
@@ -59,13 +61,13 @@ def test_get_top_three_students(db):
     # student_3 - Tech
     Atividade.objects.create(
         aluno=student_3,
-        tipo="TAREFAS",
+        tipo="tasks",
         nota=7,
         escola=tech_school
     )
     Atividade.objects.create(
         aluno=student_3,
-        tipo="DESAFIOS",
+        tipo="challenges",
         nota=8,
         escola=tech_school
     )
@@ -73,13 +75,13 @@ def test_get_top_three_students(db):
     # student_4 - Tech
     Atividade.objects.create(
         aluno=student_4,
-        tipo="TAREFAS",
+        tipo="tasks",
         nota=9,
         escola=tech_school
     )
     Atividade.objects.create(
         aluno=student_4,
-        tipo="DESAFIOS",
+        tipo="challenges",
         nota=10,
         escola=tech_school
     )
@@ -87,3 +89,83 @@ def test_get_top_three_students(db):
     response = student_svc.get_top_three_students()
 
     assert list(response.values_list("aluno", flat=True)) == [4, 3, 2]
+
+
+@pytest.mark.parametrize("input, expected", [
+    (["data", "technology", "product"], [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]),
+    (["technology", "data", "product"], [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]),
+    (["product", "technology", "data"], [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]),
+])
+def test_get_top_ten_students(db, input, expected):
+    student_1 = Aluno.objects.create(nome="test_1")
+    student_2 = Aluno.objects.create(nome="test_2")
+    student_3 = Aluno.objects.create(nome="test_3")
+    student_4 = Aluno.objects.create(nome="test_4")
+    student_5 = Aluno.objects.create(nome="test_5")
+    student_6 = Aluno.objects.create(nome="test_6")
+    student_7 = Aluno.objects.create(nome="test_7")
+    student_8 = Aluno.objects.create(nome="test_8")
+    student_9 = Aluno.objects.create(nome="test_9")
+    student_10 = Aluno.objects.create(nome="test_10")
+    student_11 = Aluno.objects.create(nome="test_11")
+    student_12 = Aluno.objects.create(nome="test_12")
+    student_13 = Aluno.objects.create(nome="test_13")
+
+    first_school = Escola.objects.create(nome=input[0])
+    second_school = Escola.objects.create(nome=input[1])
+    third_school = Escola.objects.create(nome=input[2])
+
+    first_school.alunos.add(
+        student_1, student_2, student_3, student_4, student_5, student_6,
+        student_7, student_8, student_9, student_10, student_11
+    )
+    second_school.alunos.add(student_12)
+    third_school.alunos.add(student_13)
+
+    for idx, student in enumerate(Aluno.objects.filter(escolas=first_school)):
+        Atividade.objects.create(
+            aluno=student,
+            tipo="tasks",
+            nota=idx + 1,
+            escola=first_school
+        )
+        Atividade.objects.create(
+            aluno=student,
+            tipo="challenges",
+            nota=idx + 2,
+            escola=first_school
+        )
+    
+    for idx, student in enumerate(Aluno.objects.filter(escolas=second_school)):
+        Atividade.objects.create(
+            aluno=student,
+            tipo="tasks",
+            nota=idx + 20,
+            escola=second_school
+        )
+        Atividade.objects.create(
+            aluno=student,
+            tipo="challenges",
+            nota=idx + 30,
+            escola=second_school
+        )
+    
+    for idx, student in enumerate(Aluno.objects.filter(escolas=third_school)):
+        Atividade.objects.create(
+            aluno=student,
+            tipo="tasks",
+            nota=idx + 40,
+            escola=third_school
+        )
+        Atividade.objects.create(
+            aluno=student,
+            tipo="challenges",
+            nota=idx + 50,
+            escola=third_school
+        )
+
+    form = TopTenStudents(school=input[0])
+
+    response = student_svc.get_top_ten_students(form.school)
+
+    assert list(response.values_list("aluno", flat=True)) == expected

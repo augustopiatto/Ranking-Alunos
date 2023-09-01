@@ -9,9 +9,9 @@ class Aluno(models.Model):
 
 class Escola(models.Model):
     TIPOS_DE_ESCOLA = (
-        ("DADOS", "Data"),
-        ("TECNOLOGIA", "Technology"),
-        ("PRODUTO", "Product"),
+        ("data", "dados"),
+        ("technology", "tecnologia"),
+        ("product", "produto"),
     )
     nome = models.CharField(max_length=20, choices=TIPOS_DE_ESCOLA, unique=True)
     alunos = models.ManyToManyField(Aluno, related_name="escolas")
@@ -24,9 +24,9 @@ def validate_interval(value):
 
 class Atividade(models.Model):
     TIPOS_DE_ATIVIDADES = (
-        ("TAREFAS", "Tasks"),
-        ("DESAFIOS", "Challenges"),
-        ("PROJETOS", "Projects"),
+        ("tasks", "tarefas"),
+        ("challenges", "desafios"),
+        ("projects", "projetos"),
     )
     tipo = models.CharField(max_length=20, choices=TIPOS_DE_ATIVIDADES)
     nota = models.DecimalField(decimal_places=2, max_digits=5, validators=[validate_interval])
