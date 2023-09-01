@@ -3,7 +3,6 @@ from backend.services import student_svc
 
 
 def students(request):
-    breakpoint()
     if request.method == "POST":
         return JsonResponse({})
     elif request.method == "GET":
