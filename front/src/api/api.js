@@ -4,12 +4,12 @@ const axiosInstance = axios.create({
   baseURL: "http://localhost:8000/api/",
 });
 
-const get = (url) => {
-  return axiosInstance.get(url);
+const get = (url, params) => {
+  return axiosInstance.get(url, { params });
 };
 
-const post = (url) => {
-  return axiosInstance.post(url);
+const post = (url, params) => {
+  return axiosInstance.post(url, { params });
 };
 
 const api = {
@@ -19,8 +19,10 @@ const api = {
   getTop3Students() {
     return get("top-three-students/").then((response) => response.data);
   },
-  getTop10Students() {
-    return get("top-ten-students/").then((response) => response.data);
+  getTop10Students(school) {
+    return get("top-ten-students/", { school }).then(
+      (response) => response.data
+    );
   },
   postStudent(name, course) {
     return post("students/", { name, course }).then(

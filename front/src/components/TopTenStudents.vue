@@ -28,7 +28,7 @@ export default {
   },
   async mounted() {
     try {
-      this.students = await api.getTop10Students();
+      this.students = await api.getTop10Students("data");
     } catch (error) {
       console.log(error);
     }

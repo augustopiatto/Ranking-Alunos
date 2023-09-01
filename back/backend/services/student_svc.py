@@ -21,5 +21,5 @@ def get_top_three_students():
     return top_three_students
 
 
-def get_top_ten_students():
+def get_top_ten_students(school):
     return []

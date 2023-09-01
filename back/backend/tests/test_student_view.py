@@ -60,3 +60,13 @@ def test_get_top_three_students(db, rf, mocker):
         {"idx": 1, "name": student_1.nome, "final_score": "2"},
         {"idx": 2, "name": student_2.nome, "final_score": "1"}
     ]
+
+
+def test_get_top_ten_students(db, rf, mocker):
+    # Serializer ja foi testado no test_get_top_three_students
+    mocker.patch("backend.services.student_svc.get_top_three_students", return_value=[])
+
+    request = rf.get("api/top-ten-students/", {"school": "teste"})
+    response = student_view.get_top_ten_students(request)
+
+    assert response.status_code == 200

@@ -5,7 +5,7 @@ def get_students_serializer(obj):
     }
 
 
-def get_top_three_students_serializer(index, obj):
+def get_top_students_serializer(index, obj):
     return {
         "idx": index + 1,
         "name": obj["aluno__nome"],
