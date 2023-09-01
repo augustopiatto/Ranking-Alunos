@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from backend.services import student_svc
+from backend.serializers import student_serializers
 
 
 def students(request):
@@ -7,7 +8,7 @@ def students(request):
         return JsonResponse({})
     elif request.method == "GET":
         students = student_svc.get_students()
-        serialized_students = students.serialize()
+        serialized_students = [student_serializers.get_students_serializer(student) for student in students] 
 
         return JsonResponse(serialized_students, safe=False)
 
