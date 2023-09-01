@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from decimal import Decimal
 
 # Modelos em pt-br pois outras áreas podem utilizar, então não quero confundir outros analistas
 
@@ -19,7 +18,7 @@ class Escola(models.Model):
 
 
 def validate_interval(value):
-    if value <= Decimal(0.0) or value >= Decimal(100.0):
+    if value >= 0.0 or value <= 100.0:
         raise ValidationError(('%(value)s deve estar entre 0.0 e 100.0'), params={'value': value})
 
 
@@ -30,6 +29,6 @@ class Atividade(models.Model):
         ("PROJETOS", "Projects"),
     )
     tipo = models.CharField(max_length=20, choices=TIPOS_DE_ATIVIDADES)
-    nota = models.DecimalField(decimal_places=2, max_digits=3, validators=[validate_interval])
+    nota = models.DecimalField(decimal_places=2, max_digits=5, validators=[validate_interval])
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, related_name="atividades_do_aluno")
     escola = models.ForeignKey(Escola, on_delete=models.CASCADE, related_name="atividades_da_escola")
