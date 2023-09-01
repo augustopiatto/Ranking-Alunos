@@ -19,7 +19,7 @@ def get_students():
 
 def get_top_three_students():
     ordered_students = (
-        Atividade.objects.values("aluno", "escola")
+        Atividade.objects.values("aluno__nome", "escola")
         .annotate(grade_avg=Avg("nota"))
         .order_by("-grade_avg")
     )
@@ -32,7 +32,7 @@ def get_top_ten_students(school):
     school_id = Escola.objects.get(nome=school).id
     ordered_students = (
         Atividade.objects.filter(escola_id=school_id)
-        .values("aluno", "escola")
+        .values("aluno__nome", "escola")
         .annotate(grade_avg=Avg("nota"))
         .order_by("-grade_avg")
     )

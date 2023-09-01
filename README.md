@@ -34,6 +34,7 @@ Front:
 
 Back:
 
+- docker-compose exec web python manage.py migrate (migrar dentro do docker)
 - Vá até a pasta `back`
 - Crie uma virtualenv com python (utilizado 3.10.11)
 - Rode `python -r requirements.py` para instalar as dependências
