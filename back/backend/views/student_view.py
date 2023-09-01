@@ -1,11 +1,16 @@
 from django.http import JsonResponse
 from backend.services import student_svc
 from backend.serializers import student_serializers
+from backend.forms.student_forms import PostStudents
 
 
 def students(request):
     if request.method == "POST":
+        form = PostStudents.model_validate_json(request.body)
+        student_svc.post_students(form.name)
+
         return JsonResponse({})
+
     elif request.method == "GET":
         students = student_svc.get_students()
         serialized_students = [student_serializers.get_students_serializer(student) for student in students] 
