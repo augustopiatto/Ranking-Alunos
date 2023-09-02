@@ -139,6 +139,17 @@ Back:
 
 - `python manage.py dev_db`: Popula o banco de dados local
 
+## Decisões técnicas
+
+- Vue para o frontend pois é um framework amplamente utilizado e com ótima documentação. Torna os estados reativos e facilita a escrita de código, tornando menos complexo e mais ágil
+- Vuetify é uma biblioteca completa (mesmo que a versão 3 ainda esteja sendo desenvolvida e faltem certos componentes), possui uma ótima documentação, o código do GitHub é aberto para se poder analisar cada componente e existem diversos tópicos sobre suas funcionalidades
+- Axios para se fazer conexões HTTP com promessas. A conexão HTTP é ideal para esta aplicação pois permite requisições frequentes, visto que os dados podem alterar frequentemente. A forma como o Axios trata promessas ajuda a prevenir bugs e capturar erros que podem acontecer durante o processo
+- SASS para estruturação de CSS pois permite organizar uma hierarquia, da mesma forma que os componentes à que ele se refere. Uma outra vantagem, ainda que não utilizada neste projeto, é a facilidade com a definição e uso de variáveis
+- Django para o backend pois tem uma boa estrutuação e fluxo de requisição, com camadas de views e serviços, separando responsabilidade. É amplamente utilizado e documentado e fornece uma ORM relativamente fácil de se aprender
+- Pydantic foi utilizado pois ambas linguagens utilizadas no projeto não são tipadas, logo se tornou necessário garantir que as informações provindas do usuário (frontend) estivessem no formato adequado para que o backend pudesse trabalhar
+- Pytest é a biblioteca mais comum para testes utilizando Django, facilita principalmente em testes unitários e na criação de mocks. Outra escolha seria unittest, mas acaba por ser mais verboso e exigir mais o uso de classes
+- PostgreSQL foi escolhido para que se possa armazenar e acessar dados de forma mais eficiente que o banco original do Django (sqlite), ou seja, foi utilizado pensando em escalabilidade
+
 ## Melhorias futuras
 
 Front:
