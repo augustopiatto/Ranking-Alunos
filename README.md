@@ -18,7 +18,7 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 ![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/dd5dd507-2e80-4b40-9286-7fd2b6dca64f)
 
-### Popup
+### Popups
 
 ![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/13f4da8b-eaf7-4e35-8c37-c7129761c931)
 
@@ -27,7 +27,7 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 ### MER
 
-![MER](image.png)
+![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/a86d244a-0cfe-446f-a31b-78be7619b336)
 
 ## Começando
 
@@ -43,14 +43,12 @@ Front:
 
 Back:
 
-- docker-compose exec web python manage.py migrate (migrar dentro do docker)
-- sudo service postgresql start (pra subir postgres local e rodar pytest)
 - Vá até a pasta `back`
 - Crie uma virtualenv com python (utilizado 3.10.11)
-- Rode `python -r requirements.py` para instalar as dependências
-- Rode `python manage.py migrate` para aplicação dos modelos no ambiente local
-- Execute `python manage.py runserver`
-
+- Rode `pip install -r requirements.txt` para instalar as dependências
+- Execute `python manage.py runserver` OU execute `docker-compose build` e `docker-compose up`
+- Rode `python manage.py migrate` OU `docker-compose exec web python manage.py migrate` para aplicação dos modelos no ambiente local
+- Caso queira rodar os testes localmente, execute `sudo service postgresql start` para o acesso ao banco de teste
 - Abra seu navegador e acesse `http://localhost:5173/` para ver a aplicação funcionando
 
 ## Estrutura de pasta (TODO)
