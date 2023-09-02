@@ -37,10 +37,10 @@ const apimock = {
       { idx: 10, name: "Lara", final_score: 9.1 },
     ];
   },
-  postStudent(name, course) {
+  postStudent(name, school) {
     return;
   },
-  postGrade(studentId, course, grade) {
+  postGrade(studentId, school, grade) {
     return;
   },
 };

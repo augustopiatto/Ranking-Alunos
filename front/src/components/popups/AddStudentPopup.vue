@@ -11,10 +11,10 @@
           />
           <v-autocomplete
             label="Curso"
-            v-model="course"
+            v-model="school"
             item-value="value"
             item-title="name"
-            :items="courses"
+            :items="schools"
             :rules="[rules.required]"
           />
         </v-card-text>
@@ -45,8 +45,8 @@ export default {
   },
   data() {
     return {
-      course: "",
-      courses: [
+      school: "",
+      schools: [
         { name: "Tarefas", value: "tasks" },
         { name: "Desafios", value: "challenges" },
         { name: "Projetos", value: "projects" },
@@ -67,7 +67,7 @@ export default {
       if (valid) {
         try {
           this.loading = true;
-          await api.postStudent(this.name, this.course);
+          await api.postStudent(this.name, this.school);
           this.close();
         } catch (error) {
           console.log(error);
