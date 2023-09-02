@@ -6,7 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist, ValidationError
 def post_students(name):
     try:
         Aluno.objects.get(nome=name)
-    except ObjectDoesNotExist: 
+    except ObjectDoesNotExist:
         Aluno.objects.create(nome=name)
         return
 
