@@ -53,10 +53,12 @@ Back:
 - Vá até a pasta `back`
 - Crie uma virtualenv com python (utilizado 3.10.11)
 - Rode `pip install -r requirements.txt` para instalar as dependências
-- Execute `python manage.py runserver` e `sudo service postgresql start` OU execute `docker-compose build` e `docker-compose up`
+- Execute (1) ou (2)
+- (1): Instale postgresql localmente e execute`python manage.py runserver` e `sudo service postgresql start`
+- (2) `docker-compose build` e `docker-compose up`
 - Rode `python manage.py migrate` OU `docker-compose exec web python manage.py migrate` para aplicação dos modelos no ambiente local
 - Rode `python manage.py dev_db` OU `docker-compose exec web python manage.py dev_db` para popular seu banco local
-- Caso queira rodar os testes localmente, execute `python manage.py runserver` e `sudo service postgresql start` para o acesso ao banco de teste
+- Caso queira rodar os testes localmente, execute (1) para o acesso ao banco de teste
 - Abra seu navegador e acesse `http://localhost:5173/` para ver a aplicação funcionando
 
 ## Estrutura de pasta
