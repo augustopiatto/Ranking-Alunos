@@ -135,11 +135,7 @@ Front:
 
 Back:
 
--
-
-## Detalhes
-
-csrf_exempt só pq eh local e pra agilizar o processo
+- `python manage.py dev_db`: Popula o banco de dados local
 
 ## Melhorias futuras
 
@@ -154,3 +150,4 @@ Back:
 - Implementação de kubernetes (essencial, era must-have do projeto)
 - Correção do docker para pytest rodar sem depender de subir o banco por fora
 - Melhoria do dev db para ter mais informações
+- Definições dos cookies em métodos POST e remover os `csrf_exempt`
