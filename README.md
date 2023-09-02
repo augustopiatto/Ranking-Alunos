@@ -29,9 +29,13 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 ![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/d10dff24-2b37-46a9-b07b-389203989f6a)
 
 
-### MER
+## Modelo Entidade Relacionamento (MER)
 
 ![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/a86d244a-0cfe-446f-a31b-78be7619b336)
+
+## System Design
+
+
 
 ## Começando
 
@@ -56,7 +60,7 @@ Back:
 - Caso queira rodar os testes localmente, execute `sudo service postgresql start` para o acesso ao banco de teste
 - Abra seu navegador e acesse `http://localhost:5173/` para ver a aplicação funcionando
 
-## Estrutura de pasta (TODO)
+## Estrutura de pasta
 
 ```
 ├── back                     # Arquivos do backend
@@ -93,7 +97,7 @@ Back:
 └── README.md                # Documentação do projeto
 ```
 
-## Tecnologias e Funcionalidades (TODO)
+## Tecnologias e Funcionalidades
 
 ### Tecnologias
 
@@ -101,11 +105,12 @@ O projeto inclui as seguintes tecnologias:
 
 Front:
 
-- Vue para reatividade.
-- Javascript para escalabilidade.
+- Vue para reatividade
+- Javascript para escalabilidade
 - Vite para desenvolvimento e construção rápidos e eficientes
-- Vuetify como biblioteca para UI.
-- Axios para chamadas HTTP.
+- Vuetify como biblioteca para UI
+- Axios para chamadas HTTP
+- SASS para estruturação do CSS
 
 Back:
 
@@ -123,7 +128,7 @@ O projeto possui as seguintes funcionalidades:
 - Componentes Funcionais
 - Eventos
 
-## Scripts (TODO)
+## Scripts
 
 O projeto inclui os seguintes scripts:
 
