@@ -3,15 +3,15 @@
     <h2>Top 10 alunos por curso</h2>
     <div>
       <div class="tts__buttons--container">
-        <div class="ttsb__data-button">
+        <div class="ttsb__data-button" @click="updateTable('data')">
           <div class="ttsb__button">Dados</div>
           <div class="ttsb__triangle"></div>
         </div>
-        <div class="ttsb__tech-button">
+        <div class="ttsb__tech-button" @click="updateTable('technology')">
           <div class="ttsb__button">Tecnologia</div>
           <div class="ttsb__triangle"></div>
         </div>
-        <div class="ttsb__product-button">
+        <div class="ttsb__product-button" @click="updateTable('product')">
           <div class="ttsb__button">Produto</div>
           <div class="ttsb__triangle"></div>
         </div>
@@ -44,6 +44,11 @@ export default {
       type: Array,
     },
   },
+  methods: {
+    updateTable(param) {
+      this.$emit("update", param);
+    },
+  },
 };
 </script>
 
@@ -60,16 +65,19 @@ export default {
 
     .ttsb__data-button {
       display: flex;
+      cursor: pointer;
     }
 
     .ttsb__tech-button {
       display: flex;
       margin-left: -16px;
+      cursor: pointer;
     }
 
     .ttsb__product-button {
       display: flex;
       margin-left: -16px;
+      cursor: pointer;
     }
 
     .ttsb__button {
@@ -80,7 +88,6 @@ export default {
       max-height: 40px;
       border-left: solid 1px black;
       border-top: solid 1px black;
-      cursor: pointer;
     }
 
     .ttsb__triangle {

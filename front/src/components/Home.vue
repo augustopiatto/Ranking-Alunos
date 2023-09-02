@@ -9,18 +9,21 @@
       >
     </div>
     <TopThreeStudents :top-three-students="topThreeStudents" />
-    <TopTenStudents :top-ten-students="topTenStudents" />
+    <TopTenStudents
+      :top-ten-students="topTenStudents"
+      @update="getTopTenStudents"
+    />
     <AddGradePopup
       v-if="showAddGradePopup"
       :show-add-grade-popup="showAddGradePopup"
       @close-add-grade-popup="closeAddGradePopup"
-      @update="getTopThreeStudents()"
+      @update="getTopThreeStudents"
     />
     <AddStudentPopup
       v-if="showAddStudentPopup"
       :show-add-student-popup="showAddStudentPopup"
       @close-add-student-popup="closeAddStudentPopup"
-      @update="getTopTenStudents()"
+      @update="getTopTenStudents"
     />
   </div>
 </template>
@@ -57,9 +60,13 @@ export default {
     closeAddStudentPopup() {
       this.showAddStudentPopup = false;
     },
-    async getTopTenStudents() {
+    async getTopTenStudents(param) {
+      let params = "data";
+      if (param) {
+        params = param;
+      }
       try {
-        this.topTenStudents = await api.getTop10Students("data");
+        this.topTenStudents = await api.getTop10Students(params);
       } catch (error) {
         console.log(error);
       }
