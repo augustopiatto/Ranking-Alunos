@@ -165,7 +165,15 @@ Back:
 
 ### Arquitetura em Cloud
 
-
+Para uma arquitetura escalável em Cloud será necessária as seguintes configurações para o projeto:
+- Estrutura: Monólito
+- Load Balancer: Irá distribuir o tráfego (requests) para diversas instâncias do monólito, sem que uma instância específica fique sobrecarregada com as requisições de 5 mil alunos
+- Instâncias do monólito: São cópias do servidor original que ficarão em máquinas virtuais, para que caso o tráfego seja grande, as requisições possam ser alocadas pelo Load Balancer a fim de não sobrecarregar uma única instância
+-  Banco de dados escalável: Assim como o número de instâncias aumenta quando o tráfego é maior, devemos configurar para que o banco de dados cresça conforme maior a quantidade de informações forem armazenados nele
+- Cache distribuído: Com as funções atuais da página não é necessário. O mais provável é que as informações sejam atualizadas frequentemente, e o cache atrapalharia nisso
+- Autoescalonamento e Monitoramento: Definição de regras no monitoramento da Cloud para que quando o tráfego aumentar ou diminuir, as instâncias sejam criadas ou removidas
+- CDN (Content Delivery Network): Para distribuir os conteúdos estáticos e dinâmicos em diferentes locais do país ou mundo, para reduzir latência
+- Segurança e Controle de Acesso: Usar os serviços que o provedor da Cloud oferece, por exemplo autenticação e autorização robustas, monitoramento de segurança em tempo real e gerenciamento de chaves
 
 ## Melhorias futuras
 
