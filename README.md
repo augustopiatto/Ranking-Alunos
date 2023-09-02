@@ -55,23 +55,38 @@ Back:
 ## Estrutura de pasta (TODO)
 
 ```
-├── dist                   # Arquivos compilados
-├── public                 # Assets públicos
-├── src                    # Código fonte
-│   ├── api                # API (nesse caso mock da API)
-│   ├── assets             # Assets estáticos
-│   │   ├── styles         # Estilos gerais
-│   ├── commons            # Códigos reutilizáveis
-│   ├── components         # Componentes reutilizáveis
-|   |   ├── tests          # Testes unitários dos componentes usando Vitest
-│   ├── contexts           # Separação de contexts
-│   ├── pages              # Componentes de página
-│   ├── App.vue            # Componente raiz
-│   └── main.ts            # Entry point
-├── tsconfig.json          # Configuração do TypeScript
-├── package.json           # Dependências e scripts
-├── vite.config.ts         # Configuração do Vite
-└── README.md              # Documentação do projeto
+├── back                     # Arquivos do backend
+│   ├── backend              # Projeto do backend
+│   │   ├── forms            # Formulários de Pydantic
+│   │   ├── management       # Arquivos de comandos
+│   │   ├── migrations       # Migrações do banco
+│   │   ├── serializers      # Serializers das views
+│   │   ├── services         # Camada de lógica de serviços
+│   │   ├── tests            # Testes de view e service
+│   │   ├── views            # Camada de validação de dados e serialização
+│   │   ├── models.py        # Modelos do banco
+│   │   ├── settings.py      # Configurações do projeto
+│   │   ├── urls.py          # Camada de conversa entre backend e frontend
+│   ├── docker-compose.yml   # Arquivo de controle do docker
+│   ├── Dockerfile           # Arquivo de comandos do docker
+│   ├── manage.py            # Arquivo de execução de comandos do Django
+│   ├── requirements.txt     # Requerimentos para funcionamento do projeto
+
+├── front                    # Arquivos do frontend
+├── public                   # Assets públicos
+├── src                      # Código fonte
+│   ├── api                  # API
+│   ├── apimock              # API (nesse caso mock da API)
+│   ├── assets               # Assets estáticos
+│   │   ├── style.scss       # Estilos gerais
+│   │   ├── images           # Pasta de imagens
+│   ├── components           # Componentes reutilizáveis
+│   ├── App.vue              # Componente raiz
+│   └── main.ts              # Entry point
+├── index.html               # Arquivo de acesso do JS
+├── package.json             # Dependências e scripts
+├── vite.config.ts           # Configuração do Vite
+└── README.md                # Documentação do projeto
 ```
 
 ## Tecnologias e Funcionalidades (TODO)
