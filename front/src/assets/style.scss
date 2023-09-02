@@ -1,9 +1,22 @@
-/* Cores do logo da dnc  */
-
 :root {
+  // Cores do logo da dnc
   --light-blue: #a0c6f7;
   --blue: #00abff;
   --darker-blue: #0c70f2;
+  // Cores do fundo da dnc
+  --dark-background: #303030;
+  --light-background: #efebe4;
+  // Fonte da dnc
+  font-family: Gotham, Sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    var(--dark-background) 5%,
+    rgba(147, 147, 147, 1) 65%,
+    var(--light-background) 95%
+  );
 }
 
 v-btn {

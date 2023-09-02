@@ -15,6 +15,7 @@ from backend.views import grade_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Urls do projeto
     path('api/students/', student_view.students),
     path('api/top-three-students/', student_view.get_top_three_students),
     path('api/top-ten-students/', student_view.get_top_ten_students),
