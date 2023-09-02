@@ -34,6 +34,8 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 ## System Design
 
+![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/18ae8e99-b7d6-489c-92ac-03d00ec9b761)
+
 ## Começando
 
 Para iniciar o projeto, siga os passos abaixo:
