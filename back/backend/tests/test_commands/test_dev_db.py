@@ -18,6 +18,6 @@ def test_populating_db(db):
     assert Escola.objects.count() == 3
     assert total_students == 11
     assert Atividade.objects.count() == 32
-    assert Atividade.objects.filter(tipo="TAREFAS").count() == 11
-    assert Atividade.objects.filter(tipo="DESAFIOS").count() == 11
-    assert Atividade.objects.filter(tipo="PROJETOS").count() == 10
+    assert Atividade.objects.filter(tipo="tasks").count() == 11
+    assert Atividade.objects.filter(tipo="challenges").count() == 11
+    assert Atividade.objects.filter(tipo="projects").count() == 10

@@ -111,13 +111,22 @@ def test_get_top_three_students(db):
 
     response = student_svc.get_top_three_students()
 
-    assert list(response.values_list("aluno", flat=True)) == [4, 3, 2]
+    assert list(response.values_list("aluno", flat=True)) == [student_4.id, student_3.id, student_2.id]
 
 
 @pytest.mark.parametrize("input, expected", [
-    (["data", "technology", "product"], [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]),
-    (["technology", "data", "product"], [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]),
-    (["product", "technology", "data"], [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]),
+    (
+        ["data", "technology", "product"],
+        ["test_11", "test_10", "test_9", "test_8", "test_7", "test_6", "test_5", "test_4", "test_3", "test_2"]
+    ),
+    (
+        ["technology", "data", "product"],
+        ["test_11", "test_10", "test_9", "test_8", "test_7", "test_6", "test_5", "test_4", "test_3", "test_2"]
+    ),
+    (
+        ["product", "technology", "data"],
+        ["test_11", "test_10", "test_9", "test_8", "test_7", "test_6", "test_5", "test_4", "test_3", "test_2"]
+    ),
 ])
 def test_get_top_ten_students(db, input, expected):
     student_1 = Aluno.objects.create(nome="test_1")
@@ -191,4 +200,4 @@ def test_get_top_ten_students(db, input, expected):
 
     response = student_svc.get_top_ten_students(form.school)
 
-    assert list(response.values_list("aluno", flat=True)) == expected
+    assert list(response.values_list("aluno__nome", flat=True)) == expected

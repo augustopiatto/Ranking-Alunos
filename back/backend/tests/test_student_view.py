@@ -11,7 +11,8 @@ def test_get_students(db, rf, mocker):
     response = student_view.students(request)
 
     assert response.status_code == 200
-    assert json.loads(response.content) == [{"id": student.id, "name": student.nome}]
+    json_response = json.loads(response.content)
+    assert json_response == [{"id": student.id, "name": student.nome}]
 
 
 def test_post_students(db, rf, mocker):
@@ -57,15 +58,16 @@ def test_get_top_three_students(db, rf, mocker):
     response = student_view.get_top_three_students(request)
 
     assert response.status_code == 200
-    assert json.loads(response.content) == [
-        {"idx": 1, "name": student_1.nome, "final_score": "2"},
-        {"idx": 2, "name": student_2.nome, "final_score": "1"}
+    json_response = json.loads(response.content)
+    assert json_response == [
+        {"idx": 1, "name": student_1.nome, "final_score": "2.00"},
+        {"idx": 2, "name": student_2.nome, "final_score": "1.00"}
     ]
 
 
 def test_get_top_ten_students(db, rf, mocker):
     # Serializer ja foi testado no test_get_top_three_students
-    mocker.patch("backend.services.student_svc.get_top_three_students", return_value=[])
+    mocker.patch("backend.services.student_svc.get_top_ten_students", return_value=[])
 
     request = rf.get("api/top-ten-students/", {"school": "teste"})
     response = student_view.get_top_ten_students(request)

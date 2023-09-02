@@ -17,6 +17,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - DATABASE_HOST=db
       - POSTGRES_NAME=test
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=test123
