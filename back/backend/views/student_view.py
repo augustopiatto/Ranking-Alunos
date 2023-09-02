@@ -40,6 +40,6 @@ def get_top_ten_students(request):
         student_serializers.get_top_students_serializer(
             index, student
         ) for index, student in enumerate(students)
-    ] 
+    ]
 
     return JsonResponse(serialized_students, safe=False)

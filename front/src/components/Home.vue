@@ -17,13 +17,12 @@
       v-if="showAddGradePopup"
       :show-add-grade-popup="showAddGradePopup"
       @close-add-grade-popup="closeAddGradePopup"
-      @update="getTopThreeStudents"
+      @update="getBothTopStudentsApi"
     />
     <AddStudentPopup
       v-if="showAddStudentPopup"
       :show-add-student-popup="showAddStudentPopup"
       @close-add-student-popup="closeAddStudentPopup"
-      @update="getTopTenStudents"
     />
   </div>
 </template>
@@ -44,6 +43,7 @@ export default {
   },
   data() {
     return {
+      params: "data",
       showAddGradePopup: false,
       showAddStudentPopup: false,
       topTenStudents: [],
@@ -51,7 +51,7 @@ export default {
     };
   },
   async mounted() {
-    Promise.all([this.getTopThreeStudents(), this.getTopTenStudents()]);
+    await this.getBothTopStudentsApi();
   },
   methods: {
     closeAddGradePopup() {
@@ -61,12 +61,11 @@ export default {
       this.showAddStudentPopup = false;
     },
     async getTopTenStudents(param) {
-      let params = "data";
       if (param) {
-        params = param;
+        this.params = param;
       }
       try {
-        this.topTenStudents = await api.getTop10Students(params);
+        this.topTenStudents = await api.getTop10Students(this.params);
       } catch (error) {
         console.log(error);
       }
@@ -77,6 +76,9 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    async getBothTopStudentsApi() {
+      Promise.all([this.getTopThreeStudents(), this.getTopTenStudents()]);
     },
     openAddGradePopup() {
       this.showAddGradePopup = true;

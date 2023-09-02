@@ -28,14 +28,11 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 ![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/d10dff24-2b37-46a9-b07b-389203989f6a)
 
-
 ## Modelo Entidade Relacionamento (MER)
 
 ![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/a86d244a-0cfe-446f-a31b-78be7619b336)
 
 ## System Design
-
-
 
 ## Começando
 
@@ -145,6 +142,7 @@ Back:
 ## Melhorias futuras
 
 Front:
+
 - Validação de cada campo do formulário
 - Exibição dos erros do backend (por agora está no console.log)
 - Adição do peso da nota para cálculo da média
@@ -152,7 +150,7 @@ Front:
 - Testes
 
 Back:
+
 - Implementação de kubernetes (essencial, era must-have do projeto)
 - Correção do docker para pytest rodar sem depender de subir o banco por fora
-- Melhoria do dev db para ter mais informações
 - Definições dos cookies em métodos POST e remover os `csrf_exempt`

@@ -14,10 +14,10 @@ def test_populating_db(db):
     for school in schools:
         total_students += school.alunos.count()
 
-    assert Aluno.objects.count() == 10
+    assert Aluno.objects.count() == 12
     assert Escola.objects.count() == 3
-    assert total_students == 11
-    assert Atividade.objects.count() == 32
-    assert Atividade.objects.filter(tipo="tasks").count() == 11
-    assert Atividade.objects.filter(tipo="challenges").count() == 11
-    assert Atividade.objects.filter(tipo="projects").count() == 10
+    assert total_students == 36
+    assert Atividade.objects.count() == 108
+    assert Atividade.objects.filter(tipo="tasks").count() == 36
+    assert Atividade.objects.filter(tipo="challenges").count() == 36
+    assert Atividade.objects.filter(tipo="projects").count() == 36
