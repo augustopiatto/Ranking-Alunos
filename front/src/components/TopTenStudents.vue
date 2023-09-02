@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="student in students" :key="student.id">
+        <tr v-for="student in topTenStudents" :key="student.id">
           <td>{{ student.idx }}</td>
           <td>{{ student.name }}</td>
           <td>{{ student.final_score }}</td>
@@ -21,20 +21,12 @@
 </template>
 
 <script>
-import api from "../api/api.js";
-
 export default {
-  data() {
-    return {
-      students: [],
-    };
-  },
-  async mounted() {
-    try {
-      this.students = await api.getTop10Students("data");
-    } catch (error) {
-      console.log(error);
-    }
+  props: {
+    topTenStudents: {
+      required: true,
+      type: Array,
+    },
   },
 };
 </script>

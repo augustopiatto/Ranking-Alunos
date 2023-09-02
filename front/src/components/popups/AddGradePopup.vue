@@ -104,6 +104,7 @@ export default {
             this.type
           );
           this.close();
+          this.$emit("update");
         } catch (error) {
           console.log(error);
         } finally {

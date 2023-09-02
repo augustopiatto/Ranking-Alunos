@@ -55,6 +55,7 @@ export default {
           this.loading = true;
           await api.postStudent(this.name);
           this.close();
+          this.$emit("update");
         } catch (error) {
           console.log(error);
         } finally {

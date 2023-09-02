@@ -8,17 +8,19 @@
         >Adicionar Nota</v-btn
       >
     </div>
-    <TopThreeStudents />
-    <TopTenStudents />
+    <TopThreeStudents :top-three-students="topThreeStudents" />
+    <TopTenStudents :top-ten-students="topTenStudents" />
     <AddGradePopup
       v-if="showAddGradePopup"
       :show-add-grade-popup="showAddGradePopup"
       @close-add-grade-popup="closeAddGradePopup"
+      @update="getTopThreeStudents()"
     />
     <AddStudentPopup
       v-if="showAddStudentPopup"
       :show-add-student-popup="showAddStudentPopup"
       @close-add-student-popup="closeAddStudentPopup"
+      @update="getTopTenStudents()"
     />
   </div>
 </template>
@@ -28,6 +30,7 @@ import AddGradePopup from "./popups/AddGradePopup.vue";
 import AddStudentPopup from "./popups/AddStudentPopup.vue";
 import TopThreeStudents from "./TopThreeStudents.vue";
 import TopTenStudents from "./TopTenStudents.vue";
+import api from "../api/api.js";
 
 export default {
   components: {
@@ -40,7 +43,12 @@ export default {
     return {
       showAddGradePopup: false,
       showAddStudentPopup: false,
+      topTenStudents: [],
+      topThreeStudents: [],
     };
+  },
+  async mounted() {
+    Promise.all([this.getTopThreeStudents(), this.getTopTenStudents()]);
   },
   methods: {
     closeAddGradePopup() {
@@ -48,6 +56,20 @@ export default {
     },
     closeAddStudentPopup() {
       this.showAddStudentPopup = false;
+    },
+    async getTopTenStudents() {
+      try {
+        this.topTenStudents = await api.getTop10Students("data");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getTopThreeStudents() {
+      try {
+        this.topThreeStudents = await api.getTop3Students();
+      } catch (error) {
+        console.log(error);
+      }
     },
     openAddGradePopup() {
       this.showAddGradePopup = true;
