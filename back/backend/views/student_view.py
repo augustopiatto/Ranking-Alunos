@@ -16,7 +16,6 @@ def students(request):
         serialized_students = [
             student_serializers.get_students_serializer(student) for student in students
         ] 
-
         return JsonResponse(serialized_students, safe=False)
 
 

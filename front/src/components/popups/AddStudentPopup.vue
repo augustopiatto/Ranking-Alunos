@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import apimock from "../../apimock/apimock.js";
+import api from "../../api/api.js";
 import rules from "../../helpers/rules.js";
 
 export default {
@@ -67,7 +67,7 @@ export default {
       if (valid) {
         try {
           this.loading = true;
-          await apimock.postStudent(this.name, this.course);
+          await api.postStudent(this.name, this.course);
           this.close();
         } catch (error) {
           console.log(error);

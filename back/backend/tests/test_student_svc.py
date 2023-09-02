@@ -23,9 +23,13 @@ def test_create_already_existent_student(db):
 
 
 def test_get_students(db):
+    Aluno.objects.create(nome="test_1")
+    Aluno.objects.create(nome="test_2")
+
     response = student_svc.get_students()
 
-    assert response == []
+    assert len(response) == 2
+
 
 def test_get_top_three_students(db):
     student_1 = Aluno.objects.create(nome="test_1")

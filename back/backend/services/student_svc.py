@@ -14,7 +14,9 @@ def post_students(name):
 
 
 def get_students():
-    return []
+    students = Aluno.objects.all()
+
+    return students
 
 
 def get_top_three_students():

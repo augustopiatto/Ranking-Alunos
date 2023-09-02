@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import apimock from "../../apimock/apimock.js";
+import api from "../../api/api.js";
 import rules from "../../helpers/rules.js";
 
 export default {
@@ -67,7 +67,7 @@ export default {
   },
   async mounted() {
     try {
-      this.students = await apimock.getStudents();
+      this.students = await api.getStudents();
     } catch (error) {
       console.log(error);
     }
@@ -83,7 +83,7 @@ export default {
       if (valid) {
         try {
           this.loading = true;
-          await apimock.postGrade(this.studentId, this.course, this.grade);
+          await api.postGrade(this.studentId, this.course, this.grade);
           this.close();
         } catch (error) {
           console.log(error);
