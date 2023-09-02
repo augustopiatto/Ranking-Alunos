@@ -143,6 +143,8 @@ Back:
 
 ## Decisões técnicas
 
+### Tecnologias
+
 - Vue para o frontend pois é um framework amplamente utilizado e com ótima documentação. Torna os estados reativos e facilita a escrita de código, tornando menos complexo e mais ágil
 - Vuetify é uma biblioteca completa (mesmo que a versão 3 ainda esteja sendo desenvolvida e faltem certos componentes), possui uma ótima documentação, o código do GitHub é aberto para se poder analisar cada componente e existem diversos tópicos sobre suas funcionalidades
 - Axios para se fazer conexões HTTP com promessas. A conexão HTTP é ideal para esta aplicação pois permite requisições frequentes, visto que os dados podem alterar frequentemente. A forma como o Axios trata promessas ajuda a prevenir bugs e capturar erros que podem acontecer durante o processo
@@ -160,6 +162,10 @@ Back:
 - `api/top-three-students/`: Listagem dos 3 melhores alunos / método - GET / parâmetros - None / retorno - JsonResponse<{id: int, name: string}[]>
 - `api/top-ten-students/`: Listagem dos 10 melhores alunos do curso X / método - GET / parâmetros - school: string / retorno - JsonResponse<{id: int, name: string}[]>
 - `api/grades/`:  Criação de Atividade / método - POST / parâmetros - student_id: int, school: string, grade: number, type: string / retorno - JsonResponse<{}>
+
+### Arquitetura em Cloud
+
+
 
 ## Melhorias futuras
 
