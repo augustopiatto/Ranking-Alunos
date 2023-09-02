@@ -31,4 +31,19 @@ body {
 
 .v-table {
   width: 100%;
+  border-radius: 8px !important;
+  color: white !important;
+  font-weight: 600;
+}
+.v-table tbody tr:nth-child(odd) {
+  background-color: var(--blue);
+}
+.v-table tbody tr:nth-child(even) {
+  background-color: var(--light-blue);
+}
+.v-table thead tr > * {
+  background-color: #0c70f2 !important;
+  color: var(--dark-background);
+  font-weight: 600 !important;
+  text-transform: uppercase;
 }

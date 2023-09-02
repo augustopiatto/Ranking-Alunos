@@ -62,7 +62,7 @@ export default {
 <style scoped lang="scss">
 .home {
   height: calc(100vh - 64px /** header */);
-  padding: 32px 0;
+  padding: 32px 16px;
   max-width: 640px;
   margin: 0 auto;
   display: flex;
@@ -81,6 +81,13 @@ export default {
       border-radius: 12px;
       padding: 16px 32px;
       height: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .h__buttons--container {
+      flex-direction: column;
+      gap: 16px;
     }
   }
 }

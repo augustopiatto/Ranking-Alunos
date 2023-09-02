@@ -1,7 +1,7 @@
 <template>
   <div class="top-three-students">
     <h2>Top 3 geral de alunos</h2>
-    <v-table fixed-header>
+    <v-table fixed-header class="tts__table">
       <thead>
         <tr>
           <th>Posição</th>
