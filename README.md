@@ -146,9 +146,18 @@ Back:
 - Axios para se fazer conexões HTTP com promessas. A conexão HTTP é ideal para esta aplicação pois permite requisições frequentes, visto que os dados podem alterar frequentemente. A forma como o Axios trata promessas ajuda a prevenir bugs e capturar erros que podem acontecer durante o processo
 - SASS para estruturação de CSS pois permite organizar uma hierarquia, da mesma forma que os componentes à que ele se refere. Uma outra vantagem, ainda que não utilizada neste projeto, é a facilidade com a definição e uso de variáveis
 - Django para o backend pois tem uma boa estrutuação e fluxo de requisição, com camadas de views e serviços, separando responsabilidade. É amplamente utilizado e documentado e fornece uma ORM relativamente fácil de se aprender
-- Pydantic foi utilizado pois ambas linguagens utilizadas no projeto não são tipadas, logo se tornou necessário garantir que as informações provindas do usuário (frontend) estivessem no formato adequado para que o backend pudesse trabalhar
+- Pydantic foi utilizado pois ambas linguagens utilizadas no projeto não são tipadas, logo se tornou necessário garantir que as informações provindas do usuário (frontend) estivessem no formato adequado para que o backend pudesse trabalhar. O Pydantic rejeita tipagens diferentes das que foram definidas e pode converter algumas (ex: float virar Decimal). Se localiza na pasta `back/backend/forms`
 - Pytest é a biblioteca mais comum para testes utilizando Django, facilita principalmente em testes unitários e na criação de mocks. Outra escolha seria unittest, mas acaba por ser mais verboso e exigir mais o uso de classes
 - PostgreSQL foi escolhido para que se possa armazenar e acessar dados de forma mais eficiente que o banco original do Django (sqlite), ou seja, foi utilizado pensando em escalabilidade
+
+### Endpoints
+
+- `api/students/`: Listagem de alunos / método - GET e POST
+  - GET: parâmetros - None / retorno - JsonResponse<{id: int, name: string}[]>
+  - POST: parâmetros - name: string / retorno - JsonResponse<{}>
+- `api/top-three-students/`: Listagem dos 3 melhores alunos / método - GET / parâmetros - None / retorno - JsonResponse<{id: int, name: string}[]>
+- `api/top-ten-students/`: Listagem dos 10 melhores alunos do curso X / método - GET / parâmetros - school: string / retorno - JsonResponse<{id: int, name: string}[]>
+- `api/grades/`:  Criação de Atividade / método - POST / parâmetros - student_id: int, school: string, grade: number, type: string / retorno - JsonResponse<{}>
 
 ## Melhorias futuras
 
