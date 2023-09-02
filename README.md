@@ -3,9 +3,13 @@
 ## Visão Geral do Projeto
 
 Este é um projeto que usa:
+
 Front - Vue, Javascript, Vite e Vuetify
+
 Back - Django, Python
+
 Banco - PostgreSQL
+
 É uma stack de desenvolvimento web moderna que é rápida e eficiente para construir aplicativos web escaláveis.
 
 ## Preview
@@ -105,9 +109,12 @@ Front:
 
 Back:
 
-- Django para
-- Python para
-- PostgreSQL para
+- Django para desenvolvimento rápido e estruturação de fluxo de processo
+- Python como linguagem de alto-nível e de fácil leitura
+- PostgreSQL para armazenamento de informações de forma segura e escalável
+- Pydantic para validação de dados entre frontend e backend
+- Docker para padronização de ambiente e agilidade de definição de ambiente
+- Pytest para testes e prevenção de bugs
 
 ### Funcionalidades
 
