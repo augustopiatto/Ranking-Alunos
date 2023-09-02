@@ -16,6 +16,15 @@ O projeto permite adicionar alunos à base do projeto, associar notas em suas ta
 
 #### Home
 
+![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/dd5dd507-2e80-4b40-9286-7fd2b6dca64f)
+
+### Popup
+
+![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/13f4da8b-eaf7-4e35-8c37-c7129761c931)
+
+![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/d10dff24-2b37-46a9-b07b-389203989f6a)
+
+
 ### MER
 
 ![MER](image.png)
