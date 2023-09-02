@@ -92,7 +92,7 @@ export default {
 
 <style scoped lang="scss">
 .home {
-  height: calc(100vh - 64px /** header */);
+  height: auto;
   padding: 32px 16px;
   max-width: 640px;
   margin: 0 auto;

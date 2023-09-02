@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="app-body">
     <Header />
-    <body>
+    <main>
       <Home />
-    </body>
+    </main>
   </div>
 </template>
 
@@ -11,3 +11,11 @@
 import Header from "./Header.vue";
 import Home from "./components/Home.vue";
 </script>
+
+<style lang="scss" scoped>
+.app-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+</style>

@@ -15,13 +15,14 @@ h2 {
   color: white;
 }
 
-body {
+main {
   background: linear-gradient(
     180deg,
     var(--dark-background) 5%,
     rgba(147, 147, 147, 1) 80%,
     var(--light-background) 98%
   );
+  flex: 1;
 }
 
 .v-btn {
