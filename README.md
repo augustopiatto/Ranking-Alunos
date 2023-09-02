@@ -48,6 +48,7 @@ Back:
 - Rode `pip install -r requirements.txt` para instalar as dependências
 - Execute `python manage.py runserver` OU execute `docker-compose build` e `docker-compose up`
 - Rode `python manage.py migrate` OU `docker-compose exec web python manage.py migrate` para aplicação dos modelos no ambiente local
+- Rode `python manage.py dev_db` OU `docker-compose exec web python manage.py dev_db` para popular seu banco local
 - Caso queira rodar os testes localmente, execute `sudo service postgresql start` para o acesso ao banco de teste
 - Abra seu navegador e acesse `http://localhost:5173/` para ver a aplicação funcionando
 
@@ -117,3 +118,17 @@ Back:
 ## Detalhes
 
 csrf_exempt só pq eh local e pra agilizar o processo
+
+## Melhorias futuras
+
+Front:
+- Validação de cada campo do formulário
+- Exibição dos erros do backend (por agora está no console.log)
+- Adição do peso da nota para cálculo da média
+- CSS de forma geral, para mostrar carregamento de componentes e atenuação dos botões
+- Testes
+
+Back:
+- Implementação de kubernetes (essencial, era must-have do projeto)
+- Correção do docker para pytest rodar sem depender de subir o banco por fora
+- Melhoria do dev db para ter mais informações
