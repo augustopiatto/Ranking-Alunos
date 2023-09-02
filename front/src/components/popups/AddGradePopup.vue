@@ -1,8 +1,8 @@
 <template>
-  <v-dialog v-model="visible" class="add-grade-popup">
+  <v-dialog v-model="visible" class="add-grade-popup" persistent>
     <v-card class="asg__card--container">
       <v-form ref="form">
-        <v-card-title class="pl-0">Adicionar nota</v-card-title>
+        <v-card-title class="pl-0 asgc__title">Adicionar nota</v-card-title>
         <v-autocomplete
           label="Aluno"
           v-model="studentId"
@@ -34,7 +34,9 @@
           :rules="[rules.required]"
         />
         <v-card-actions class="asgc__actions--buttons">
-          <v-btn border @click="close">Fechar</v-btn>
+          <v-btn class="asgca__button--secondary" border @click="close"
+            >Fechar</v-btn
+          >
           <v-btn
             class="asgca__button--primary"
             :loading="loading"
@@ -125,14 +127,25 @@ export default {
 
   .asg__card--container {
     padding: 24px;
+    background-color: var(--light-background);
+
+    .asgc__title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--darker-blue);
+    }
 
     .asgc__actions--buttons {
       display: flex;
       justify-content: space-between;
 
       .asgca__button--primary {
-        background-color: var(--blue);
-        color: rgb(240, 240, 240);
+        background-color: var(--darker-blue);
+        color: white;
+      }
+
+      .asgca__button--secondary {
+        border: 1px solid black;
       }
     }
   }

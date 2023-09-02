@@ -1,8 +1,8 @@
 <template>
-  <v-dialog v-model="visible" class="add-student-popup">
+  <v-dialog v-model="isVisible" class="add-student-popup" persistent>
     <v-card class="asp__card--container">
       <v-form ref="form">
-        <v-card-title class="pl-0">Adicionar aluno</v-card-title>
+        <v-card-title class="pl-0 aspc__title">Adicionar aluno</v-card-title>
         <v-card-text class="pa-0">
           <v-text-field
             label="Nome do aluno"
@@ -11,7 +11,9 @@
           />
         </v-card-text>
         <v-card-actions class="aspc__actions--buttons">
-          <v-btn border @click="close">Fechar</v-btn>
+          <v-btn class="aspca__button--secondary" border @click="close"
+            >Fechar</v-btn
+          >
           <v-btn
             class="aspca__button--primary"
             :loading="loading"
@@ -40,10 +42,11 @@ export default {
       loading: false,
       name: "",
       rules,
+      visible: true,
     };
   },
   computed: {
-    visible() {
+    isVisible() {
       return this.showAddStudentPopup;
     },
   },
@@ -76,14 +79,25 @@ export default {
 
   .asp__card--container {
     padding: 24px;
+    background-color: var(--light-background);
+
+    .aspc__title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--darker-blue);
+    }
 
     .aspc__actions--buttons {
       display: flex;
       justify-content: space-between;
 
       .aspca__button--primary {
-        background-color: var(--blue);
-        color: rgb(240, 240, 240);
+        background-color: var(--darker-blue);
+        color: white;
+      }
+
+      .aspca__button--secondary {
+        border: 1px solid black;
       }
     }
   }
