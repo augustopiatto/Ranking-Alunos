@@ -19,6 +19,14 @@
           :items="schools"
           :rules="[rules.required]"
         />
+        <v-autocomplete
+          label="Tipo da tarefa"
+          v-model="type"
+          item-value="value"
+          item-title="name"
+          :items="taskTypes"
+          :rules="[rules.required]"
+        />
         <v-text-field
           label="Nota"
           type="number"
@@ -54,15 +62,21 @@ export default {
     return {
       school: "",
       schools: [
-        { name: "Tarefas", value: "tasks" },
-        { name: "Desafios", value: "challenges" },
-        { name: "Projetos", value: "projects" },
+        { name: "Dados", value: "data" },
+        { name: "Tecnologia", value: "technology" },
+        { name: "Produto", value: "product" },
       ],
       grade: null,
       loading: false,
       rules,
       studentId: null,
       students: [],
+      taskTypes: [
+        { name: "Tarefas", value: "tasks" },
+        { name: "Desafios", value: "challenges" },
+        { name: "Projetos", value: "projects" },
+      ],
+      type: "",
     };
   },
   async mounted() {
@@ -83,7 +97,12 @@ export default {
       if (valid) {
         try {
           this.loading = true;
-          await api.postGrade(this.studentId, this.school, this.grade);
+          await api.postGrade(
+            this.studentId,
+            this.school,
+            this.grade,
+            this.type
+          );
           this.close();
         } catch (error) {
           console.log(error);

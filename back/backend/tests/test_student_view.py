@@ -17,7 +17,7 @@ def test_get_students(db, rf, mocker):
 
 def test_post_students(db, rf, mocker):
     mocker.patch("backend.services.student_svc.post_students", return_value=None)
-    request = rf.post("api/students/", {"name": "teste"}, content_type="application/json")
+    request = rf.post("api/students/", {"params": {"name": "teste"}}, content_type="application/json")
     response = student_view.students(request)
 
     assert response.status_code == 200

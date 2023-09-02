@@ -7,7 +7,7 @@ def test_post_student_grade_view(db, rf, mocker):
     student = Aluno.objects.create(nome="test")
     request = rf.post(
         "api/grade/",
-        {"student_id": student.id, "school": "data", "grade": 1.0, "type": "tasks"},
+        {"params": {"student_id": student.id, "school": "data", "grade": 1.0, "type": "tasks"}},
         content_type="application/json"
     )
     response = grade_view.post_student_grade(request)

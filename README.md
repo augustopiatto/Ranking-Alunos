@@ -106,3 +106,7 @@ Front:
 Back:
 
 -
+
+## Detalhes
+
+csrf_exempt só pq eh local e pra agilizar o processo

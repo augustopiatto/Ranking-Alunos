@@ -2,11 +2,14 @@ from django.http import JsonResponse
 from backend.services import student_svc
 from backend.serializers import student_serializers
 from backend.forms.student_forms import PostStudents, TopTenStudents
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
+@csrf_exempt
 def students(request):
     if request.method == "POST":
-        form = PostStudents.model_validate_json(request.body)
+        form = PostStudents.model_validate(json.loads(request.body)['params'])
         student_svc.post_students(form.name)
 
         return JsonResponse({})

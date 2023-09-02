@@ -24,13 +24,11 @@ const api = {
       (response) => response.data
     );
   },
-  postStudent(name, school) {
-    return post("students/", { name, school }).then(
-      (response) => response.data
-    );
+  postStudent(name) {
+    return post("students/", { name }).then((response) => response.data);
   },
-  postGrade(studentId, school, grade) {
-    return post("grades/", { studentId, school, grade }).then(
+  postGrade(studentId, school, grade, type) {
+    return post("grades/", { student_id: studentId, school, grade, type }).then(
       (response) => response.data
     );
   },
