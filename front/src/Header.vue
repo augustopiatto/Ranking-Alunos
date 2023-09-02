@@ -4,7 +4,7 @@
       <div class="hw__dnc-logo">
         <img :src="getImageUrl('logo_dnc')" alt="dnc_logo" />
       </div>
-      <h2 class="hw__title">Ranking dos alunos</h2>
+      <h1 class="hw__title">Ranking dos alunos</h1>
     </div>
   </div>
 </template>

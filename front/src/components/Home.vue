@@ -1,8 +1,12 @@
 <template>
-  <div class="container">
-    <div class="buttons-container">
-      <v-btn @click="openAddStudentPopup">Adicionar Aluno</v-btn>
-      <v-btn @click="openAddGradePopup">Adicionar Nota</v-btn>
+  <div class="home">
+    <div class="h__buttons--container">
+      <v-btn @click="openAddStudentPopup" class="hb__button"
+        >Adicionar Aluno</v-btn
+      >
+      <v-btn @click="openAddGradePopup" class="hb__button"
+        >Adicionar Nota</v-btn
+      >
     </div>
     <TopThreeStudents />
     <TopTenStudents />
@@ -56,7 +60,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
+.home {
   height: calc(100vh - 64px /** header */);
   padding: 32px 0;
   max-width: 640px;
@@ -65,11 +69,19 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 48px;
-}
 
-.buttons-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  .h__buttons--container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .hb__button {
+      background-color: var(--darker-blue);
+      color: white;
+      border-radius: 12px;
+      padding: 16px 32px;
+      height: auto;
+    }
+  }
 }
 </style>

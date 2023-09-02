@@ -10,6 +10,11 @@
   font-family: Gotham, Sans-serif;
 }
 
+h1,
+h2 {
+  color: white;
+}
+
 body {
   background: linear-gradient(
     180deg,
@@ -19,6 +24,11 @@ body {
   );
 }
 
-v-btn {
+.v-btn {
   text-transform: uppercase;
+  font-weight: 400 !important;
+}
+
+.v-table {
+  width: 100%;
 }
