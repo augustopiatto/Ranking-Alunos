@@ -1,44 +1,16 @@
-# DNC
+# Ranking de Alunos
 
 ## Visão Geral do Projeto
 
-Este é um projeto que usa:
-
-Front - Vue, Javascript, Vite e Vuetify
-
-Back - Django, Python
-
-Banco - PostgreSQL
-
-É uma stack de desenvolvimento web moderna que é rápida e eficiente para construir aplicativos web escaláveis.
+Este é um projeto que usa Vue, Javascript, Vite, Vuetify, Django, Python, PostgreSQL. É uma stack de desenvolvimento web moderna que é rápida e eficiente para construir aplicativos web escaláveis.
 
 ## Preview
 
 O projeto permite adicionar alunos à base do projeto, associar notas em suas tarefas, desafios e projetos e mostra ao usuário quem são os top 3 alunos de todos as Escolas e o top 10 alunos de cada Escola.
 
-### Telas
-
-#### Home
-
-![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/dd5dd507-2e80-4b40-9286-7fd2b6dca64f)
-
-### Popups
-
-![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/13f4da8b-eaf7-4e35-8c37-c7129761c931)
-
-![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/d10dff24-2b37-46a9-b07b-389203989f6a)
-
-## Modelo Entidade Relacionamento (MER)
-
-![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/a86d244a-0cfe-446f-a31b-78be7619b336)
-
-## System Design
-
-![image](https://github.com/augustopiatto/dnc-processoseletivo/assets/77405968/18ae8e99-b7d6-489c-92ac-03d00ec9b761)
-
 ## Começando
 
-Para iniciar o projeto, siga os passos abaixo:
+Para iniciar o projeto, siga os passos abaixo (está falho, irei corrigir futuramente):
 
 - Clone o repositório em sua máquina local
 
